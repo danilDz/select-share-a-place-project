@@ -1,29 +1,8 @@
-import path, { dirname } from "node:path";
-import { fileURLToPath } from "node:url";
+const path = require('path');
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
-export default {
-  mode: "development",
-  entry: "./src/app.ts",
-  devtool: "inline-source-map",
-  module: {
-    rules: [
-      {
-        test: /\.ts$/,
-        use: "ts-loader",
-        exclude: /node_modules/,
-      },
-    ],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
-    publicPath: '/dist/'
-  },
+module.exports = {
+  mode: 'development',
+  entry: './src/app.ts',
   devServer: {
     static: [
       {
@@ -31,4 +10,21 @@ export default {
       },
     ],
   },
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+    publicPath: '/dist/'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.ts', '.js']
+  }
 };
