@@ -15,5 +15,8 @@
     "webpack-cli": "^5.0.1",
     "webpack-dev-server": "^4.11.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/google.maps": "^3.54.10",
+    "axios": "^1.6.2"
+  }
 }
